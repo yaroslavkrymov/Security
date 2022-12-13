@@ -1,0 +1,124 @@
+***************Bello Is everything needed to start a project:
+
+
+
+//jshint esversion:6
+const express = require("express");
+const bodyParser = require("body-parser");
+const ejs = require("ejs");
+
+const app = express();
+
+
+
+
+app.use(express.static("public"));
+app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
+
+
+
+app.listen(3000, function() {
+  console.log("Server started on port 3000");
+});
+
+
+
+
+
+**********These commandes in Terminal will activate everything from above
+
+
+go to folder where project is:
+
+4265355@YEGA-SA507160 MINGW64 ~
+$ cd Desktop/Web\ Development/Secrets\ -\ Starting\ Code/
+
+
+
+$ npm init -y
+*****-y is to answer "yes" to everything 
+
+
+$ npm i express ejs body-parser
+**** will install all these dependencies 
+
+
+
+$ nodemon app.js
+******starts the service and allows you to only now view the page in the browser
+that is assuming we added the bellow code in app.js:
+
+
+app.get("/", function(res, req){
+res.render("home");
+});
+
+app.get("/login", function(res, req){
+res.render("login");
+});
+
+app.get("/register", function(res, req){
+res.render("register");
+});
+
+
+
+
+
+*******Until now we did not have mongoose. Now we will install it in
+command and in the app.js file (    mongoose.connect("mongodb://localhost:27017/userDB", {useNewURLParser: true});       )
+
+27017: port number that we use by convernsion
+userDB:    this is the name that we WILL be giving to our database in the short future
+useNewURLParser: this part will remove the errors that we might get
+
+
+$ npm i mongoose
+
+after this we go and add this line into  the app.js file          mongoose.connect("mongodb://localhost:27017/userDB", {useNewURLParser: true});
+
+we installed mongoose into app.js by this point, but we have not started the mongoDB server yet.
+
+
+
+Open second Termincal/Comand/Dit Bash window and start mongo sever by typing mongo
+
+$ mongo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
